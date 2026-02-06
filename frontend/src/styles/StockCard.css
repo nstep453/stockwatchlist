@@ -1,0 +1,273 @@
+/**
+ * Stock Card Styles
+ */
+
+.stock-card {
+  background: white;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stock-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+/* Card Header */
+.card-header {
+  background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.stock-info {
+  margin-bottom: var(--spacing-sm);
+}
+
+.symbol {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.name {
+  margin: 2px 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-700);
+}
+
+.sector {
+  margin: 0;
+  font-size: 12px;
+  color: var(--neutral-500);
+  font-style: italic;
+}
+
+.quick-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 12px;
+  color: var(--neutral-600);
+}
+
+.quick-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Card Body */
+.card-body {
+  padding: var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Quote Section */
+.quote-section {
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--neutral-200);
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.current-price {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--neutral-900);
+}
+
+.price-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.price-change.positive {
+  color: var(--text-positive);
+}
+
+.price-change.negative {
+  color: var(--text-negative);
+}
+
+.price-change .icon {
+  font-size: 20px;
+}
+
+/* OHLCV Stats */
+.ohlcv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--neutral-200);
+  padding: var(--spacing-md) 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat .label {
+  font-size: 11px;
+  color: var(--neutral-500);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.stat .value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+.timestamp {
+  font-size: 11px;
+  color: var(--neutral-500);
+  text-align: center;
+}
+
+/* Alerts Section */
+.alerts-section {
+  background: #fff3cd;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  border-left: 4px solid var(--warning);
+}
+
+.alerts-title {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: #856404;
+}
+
+.alert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.alert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #856404;
+}
+
+.alert-badge.disabled {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--neutral-200);
+  background: var(--neutral-100);
+}
+
+.btn-report,
+.btn-alerts {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.btn-report {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-report:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+.btn-report:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-alerts {
+  background: var(--secondary);
+  color: var(--neutral-900);
+}
+
+.btn-alerts:hover {
+  background: #00c4dd;
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stock-card {
+    border-radius: var(--radius-md);
+  }
+
+  .current-price {
+    font-size: 28px;
+  }
+
+  .price-change {
+    font-size: 16px;
+  }
+
+  .ohlcv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn-report,
+  .btn-alerts {
+    width: 100%;
+  }
+}
